@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Clock, Share2, Globe } from "lucide-react";
 
 const navLinks = [
@@ -17,12 +18,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <span className="font-serif text-brand-cream text-2xl font-bold block">
-                Hemingways
-              </span>
-              <span className="font-heading text-brand-tan text-xs tracking-[0.2em] uppercase">
-                Lakeside
-              </span>
+              <Image
+                src="/logo.svg"
+                alt="Hemingways Lakeside Restaurant & Bar"
+                width={180}
+                height={73}
+                className="h-14 w-auto brightness-0 invert"
+              />
             </div>
             <p className="font-sans text-sm leading-relaxed text-brand-tan/80 mb-6">
               A lakeside haven for fine dining, craft drinks, and unforgettable

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { events } from "@/data/events";
+import { getEvents } from "@/lib/getEvents";
 import EventCard from "@/components/events/EventCard";
 import PrivateHireSection from "@/components/events/PrivateHireSection";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -11,7 +11,10 @@ export const metadata: Metadata = {
     "Upcoming events and private hire at Hemingways Lakeside. Live music, tasting evenings, seasonal feasts, and more.",
 };
 
-export default function EventsPage() {
+export const revalidate = 60;
+
+export default async function EventsPage() {
+  const events = await getEvents();
   return (
     <>
       {/* Page Hero */}

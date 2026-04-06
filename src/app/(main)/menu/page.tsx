@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { menuCategories } from "@/data/menu";
+import { getMenuCategories } from "@/lib/getMenu";
 import MenuSection from "@/components/menu/MenuSection";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Menu",
@@ -9,7 +11,8 @@ export const metadata: Metadata = {
     "Explore our seasonal menu of fresh local cuisine, craft drinks, and Scottish favourites at Hemingways Lakeside.",
 };
 
-export default function MenuPage() {
+export default async function MenuPage() {
+  const menuCategories = await getMenuCategories();
   return (
     <>
       {/* Page Hero */}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -41,14 +42,16 @@ export default function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex flex-col leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber"
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber"
             >
-              <span className="font-serif text-brand-cream text-xl font-bold tracking-wide">
-                Hemingways
-              </span>
-              <span className="font-heading text-brand-tan text-xs tracking-[0.2em] uppercase">
-                Lakeside
-              </span>
+              <Image
+                src="/logo.svg"
+                alt="Hemingways Lakeside Restaurant & Bar"
+                width={160}
+                height={65}
+                className="h-12 w-auto text-brand-cream brightness-0 invert"
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}

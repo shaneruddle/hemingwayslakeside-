@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { galleryImages } from "@/data/gallery";
+import { getGalleryImages } from "@/lib/getGallery";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 
 export const metadata: Metadata = {
@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     "Browse photos of our food, drinks, lakeside venue, and events at Hemingways Lakeside in Argyll, Scotland.",
 };
 
-export default function GalleryPage() {
+export const revalidate = 60;
+
+export default async function GalleryPage() {
+  const galleryImages = await getGalleryImages();
   return (
     <>
       {/* Page Hero */}
