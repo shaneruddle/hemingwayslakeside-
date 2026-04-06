@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-cream: #F5EDD9;
+  --color-brand-parchment: #EDE0C4;
+  --color-brand-bark: #2C1A0E;
+  --color-brand-driftwood: #6B4F35;
+  --color-brand-amber: #C8782A;
+  --color-brand-amber-dark: #A05E1A;
+  --color-brand-forest: #4A6741;
+  --color-brand-forest-dark: #354D2F;
+  --color-brand-tan: #D4B896;
+  --color-brand-charcoal: #1A1209;
+
+  /* Fonts — system stacks for reliability */
+  --font-serif: "Palatino Linotype", "Palatino", "Book Antiqua", "Georgia", serif;
+  --font-heading: "Georgia", "Times New Roman", serif;
+  --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5EDD9;
+  color: #2C1A0E;
+  font-family: var(--font-sans);
+}
+
+/* Grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Selection color */
+::selection {
+  background-color: #C8782A;
+  color: #F5EDD9;
+}
